@@ -1,2 +1,2 @@
-# open_mower_scripts
-Scripts for the open mower ros and open mower mowgli projects
+# open mower scripts
+Scripts for the open mower ROS (Robot Operating System) and open mower mowgli projects
