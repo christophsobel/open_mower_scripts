@@ -20,6 +20,7 @@ import gpxpy.gpx
 import utm
 import rosbag
 import math
+import os
 from geometry_msgs.msg import Polygon, Point32, Pose
 from _MapArea import MapArea  # Imports the custom message from its package
 # from tf.transformations import quaternion_from_euler
