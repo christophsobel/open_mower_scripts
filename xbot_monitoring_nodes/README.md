@@ -15,12 +15,12 @@ The generated sensor data is stored in an influx database
 
 ## Graphana with plotly plugin
 quick visualisation for few datapoints.
-[Positioning Accuracy](img/positionaccuracy.png)
+![Positioning Accuracy](img/positionaccuracy.png)
 
 ## python matplotlib and datashader
 long term statistics
 
-[Mow motor current](img/mow_motor_current.png)
+![Mow motor current](img/mow_motor_current.png)
 
-[Terrain elevation](img/z_height.png)
+![Terrain elevation](img/z_height.png)
 
