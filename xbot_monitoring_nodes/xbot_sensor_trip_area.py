@@ -72,8 +72,8 @@ def sensor_publish():
         area_data.stamp = rospy.Time.now()
         area_data.data = area
             
-        print("trip: ", trip_data.data, " ", type(trip_data.data))
-        print("area: ", area_data.data, " ", type(area_data.data))
+        # print("trip: ", trip_data.data, " ", type(trip_data.data))
+        # print("area: ", area_data.data, " ", type(area_data.data))
 
         # Publish
         trip_sensor_data_publisher.publish(trip_data)
@@ -84,11 +84,12 @@ def sensor_publish():
 # read data, calculate delta value
 def callback_pose(msg):
     global last_x, last_y, trip, area, last_status
-    if last_x != None and last_y != None and last_status == "MOWING":
+    if last_x != None and last_y != None:
         dx = msg.pose.pose.position.x - last_x
         dy = msg.pose.pose.position.y - last_y
         trip = trip + math.sqrt(dx*dx + dy*dy)
-        area = trip * OM_TOOL_WIDTH
+        if last_status == "MOWING":
+            area = trip * OM_TOOL_WIDTH
     last_x = msg.pose.pose.position.x
     last_y = msg.pose.pose.position.y
 

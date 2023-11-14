@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 
-#===========================================
-# Christoph Sobel 22.06.2023
-#
 # get rosout, parse and publish to sensor topic
-#
-#===========================================
 
 import rospy
 from xbot_msgs.msg import SensorInfo
@@ -46,11 +41,13 @@ def sensor_publish():
 def callback_rosout(log_msg):
     global sensor_data_publisher
     # print(log_msg.level)
-    if log_msg.level > 2:
-        print(log_msg.level + ": " + log_msg.name + ": " + log_msg.msg)
+    if "congested" in log_msg.msg:
+        return
+    if log_msg.level > 4:
+        print(str(log_msg.level) + ": " + log_msg.name + ": " + log_msg.msg)
         data = SensorDataString()
         data.stamp = rospy.Time.now()
-        data.data = log_msg.level + ": " + log_msg.name + ": " + log_msg.msg
+        data.data = str(log_msg.level) + ": " + log_msg.name + ": " + log_msg.msg
         #print(data.data)
         # Publish
         sensor_data_publisher.publish(data)

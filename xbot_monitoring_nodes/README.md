@@ -13,7 +13,7 @@ Modify type and name according to the needed sensor.
 # Visualisation examples
 The generated sensor data is stored in an influx database
 
-## Graphana with plotly plugin
+## Grafana with plotly plugin
 quick visualisation for few datapoints.
 ![Positioning Accuracy](img/positionaccuracy.png)
 
